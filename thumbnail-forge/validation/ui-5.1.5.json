@@ -1,0 +1,168 @@
+{
+  "version": "5.1.5",
+  "date": "2026-10-07T11:36:28.683Z",
+  "mode": "Real Chromium DOM/canvas; simulated chrome.runtime/storage/tabs APIs",
+  "limitations": [
+    "No authenticated Flow generation tested.",
+    "No native Chrome downloads integration tested.",
+    "No installed MV3 worker integration asserted by this suite."
+  ],
+  "results": [
+    {
+      "name": "V5 migration preserves references, exact text, stored logo and custom prompt",
+      "status": "passed",
+      "suite": "shared"
+    },
+    {
+      "name": "Generation counter recovers maximum persisted job or history number",
+      "status": "passed",
+      "suite": "shared"
+    },
+    {
+      "name": "Export settings normalize filenames and clamp size/position/mode",
+      "status": "passed",
+      "suite": "shared"
+    },
+    {
+      "name": "Export filenames sort by generation then output and retain snapshot prefix",
+      "status": "passed",
+      "suite": "shared"
+    },
+    {
+      "name": "Logo rectangle respects aspect ratio and safe corners on landscape/portrait/square",
+      "status": "passed",
+      "suite": "shared"
+    },
+    {
+      "name": "Only enabled Flow mode attaches uploaded logo",
+      "status": "passed",
+      "suite": "shared"
+    },
+    {
+      "name": "Prompt retains exact zones with enabled Flow logo",
+      "status": "passed",
+      "suite": "shared"
+    },
+    {
+      "name": "Overlay prompt reserves logo area and never attaches/invents brand",
+      "status": "passed",
+      "suite": "shared"
+    },
+    {
+      "name": "Disabled or absent logo does not request a brand mark",
+      "status": "passed",
+      "suite": "shared"
+    },
+    {
+      "name": "Custom prompt without placeholders receives text/brief/logo safeguards",
+      "status": "passed",
+      "suite": "shared"
+    },
+    {
+      "name": "Flow project identity survives trailing slash, editor subroutes and SPA query/hash changes",
+      "status": "passed",
+      "suite": "shared"
+    },
+    {
+      "name": "Flow project identity rejects home routes, foreign hosts, credentials and malformed IDs",
+      "status": "passed",
+      "suite": "shared"
+    },
+    {
+      "name": "Current image models preserve Lite and Pro, migrate the old default and retain the shared project",
+      "status": "passed",
+      "suite": "shared"
+    },
+    {
+      "suite": "browser",
+      "name": "Logo controls start hidden until a real local PNG is imported",
+      "status": "passed"
+    },
+    {
+      "suite": "browser",
+      "name": "Export settings and exact text survive popup reload via simulated storage",
+      "status": "passed"
+    },
+    {
+      "suite": "browser",
+      "name": "Logo modes update prompt and disabled logo can stay stored",
+      "status": "passed"
+    },
+    {
+      "suite": "browser",
+      "name": "Result controls show stable filenames and target job/index for retry",
+      "status": "passed"
+    },
+    {
+      "suite": "browser",
+      "name": "Blob-only result retains its filename, retry action and visible export error",
+      "status": "passed"
+    },
+    {
+      "suite": "browser",
+      "name": "Progress events preserve current draft and lock logo changes while running",
+      "status": "passed"
+    },
+    {
+      "suite": "browser",
+      "name": "Logo removal updates stored state and controls without dropping settings",
+      "status": "passed"
+    },
+    {
+      "suite": "browser",
+      "name": "PNG overlay uses actual browser pixels, transparent logo and chosen corner",
+      "status": "passed"
+    },
+    {
+      "suite": "browser",
+      "name": "Missing required logo fails export and disabled logo retains base pixels",
+      "status": "passed"
+    },
+    {
+      "suite": "browser",
+      "name": "Unsafe export URLs are rejected without contacting a remote server",
+      "status": "passed"
+    },
+    {
+      "suite": "browser",
+      "name": "No horizontal overflow in 360px side panel, 440px popup or 1400px studio",
+      "status": "passed"
+    },
+    {
+      "suite": "browser",
+      "name": "The three image models persist from the actual studio dropdown",
+      "status": "passed"
+    },
+    {
+      "suite": "browser",
+      "name": "No unhandled browser page errors",
+      "status": "passed"
+    }
+  ],
+  "browser": "151.0.7922.173",
+  "viewportChecks": [
+    {
+      "width": 360,
+      "inner": 360,
+      "body": 360,
+      "html": 360
+    },
+    {
+      "width": 440,
+      "inner": 440,
+      "body": 440,
+      "html": 440
+    },
+    {
+      "width": 1400,
+      "inner": 1400,
+      "body": 1400,
+      "html": 1400
+    }
+  ],
+  "summary": {
+    "passed": 26,
+    "failed": 0,
+    "blocked": 0
+  }
+}

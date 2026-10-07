@@ -1,0 +1,159 @@
+{
+  "version": "5.1.5",
+  "date": "2026-10-07T11:39:55.298Z",
+  "mode": "Real Chromium DOM/canvas/fetch/CORS/history.pushState + real CDP Page resource-cache; simulated chrome.scripting/tabs adapters",
+  "limitations": [
+    "No authenticated Flow account or exact production CDN was accessed.",
+    "No installed MV3 extension or native Chrome download was asserted by this suite; chrome.scripting documentId routing is simulated with a per-document token.",
+    "A temporary TLS server serves 127.0.0.1 and localhost as distinct origins; the TF host guard is locally adapted and normal browser CORS remains enabled."
+  ],
+  "results": [
+    {
+      "name": "Same-origin rendered PNG returns native canvas pixels without debugger",
+      "status": "passed"
+    },
+    {
+      "name": "Same-origin blob image is read as pixels, without an extension fetch",
+      "status": "passed"
+    },
+    {
+      "name": "Visible data image uses canvas at original dimensions",
+      "status": "passed"
+    },
+    {
+      "name": "Cross-origin tainted canvas falls back to page CORS fetch",
+      "status": "passed"
+    },
+    {
+      "name": "Cross-origin PNG without CORS is read from real browser resource cache",
+      "status": "passed"
+    },
+    {
+      "name": "Cross-origin JPEG without CORS is read from real browser resource cache",
+      "status": "passed"
+    },
+    {
+      "name": "Cross-origin WEBP without CORS is read from real browser resource cache",
+      "status": "passed"
+    },
+    {
+      "name": "Cached cross-origin image reaches final PNG with exact logo pixels and original size",
+      "status": "passed"
+    },
+    {
+      "name": "Cached octet-stream image requires a real PNG signature and bitmap decode",
+      "status": "passed"
+    },
+    {
+      "name": "An expired URL returning HTML does not stop export of its already loaded image",
+      "status": "passed"
+    },
+    {
+      "name": "If cache attachment fails, page fetch still works when CORS allows it",
+      "status": "passed"
+    },
+    {
+      "name": "Arbitrary absent URL is refused before fetch or debugger",
+      "status": "passed"
+    },
+    {
+      "name": "Hidden exact URL cannot authorize export",
+      "status": "passed"
+    },
+    {
+      "name": "HTML data and a foreign absent blob cannot authorize image retrieval",
+      "status": "passed"
+    },
+    {
+      "name": "Stale tabs URL and pendingUrl cannot block the exact visible result",
+      "status": "passed"
+    },
+    {
+      "name": "HTML MIME in cache is rejected without requesting its body",
+      "status": "passed"
+    },
+    {
+      "name": "Forged bitmap MIME with HTML body is refused",
+      "status": "passed"
+    },
+    {
+      "name": "Child-frame-only resource cannot authorize the cache fallback",
+      "status": "passed"
+    },
+    {
+      "name": "Oversized bitmap header is rejected before decompression",
+      "status": "passed"
+    },
+    {
+      "name": "Tabs metadata changing during cache reading does not replace the live document",
+      "status": "passed"
+    },
+    {
+      "name": "Cache protocol errors are redacted",
+      "status": "passed"
+    },
+    {
+      "name": "Legacy home-page metadata survives real SPA navigation to a project",
+      "status": "passed"
+    },
+    {
+      "name": "Legacy previous-project metadata relies on the exact displayed image after SPA navigation",
+      "status": "passed"
+    },
+    {
+      "name": "A verified project permits a detail path and trailing slash for the same project ID",
+      "status": "passed"
+    },
+    {
+      "name": "Stale CDP root path is accepted only with same origin and exact live image proof",
+      "status": "passed"
+    },
+    {
+      "name": "Stale CDP URL metadata is ignored when the pinned Flow document and image are unchanged",
+      "status": "passed"
+    },
+    {
+      "name": "Real SPA route changes retain authorization only while the exact image stays in the same document",
+      "status": "passed"
+    },
+    {
+      "name": "Real SPA detail navigation during cache reading retains the same project identity",
+      "status": "passed"
+    },
+    {
+      "name": "Removing the exact result during cache reading reports missing image, not a changed project",
+      "status": "passed"
+    },
+    {
+      "name": "A real reload invalidates the pinned document even if the same URL and image reappear",
+      "status": "passed"
+    },
+    {
+      "name": "DOM injections pin the initial top-frame document ID on every subsequent call",
+      "status": "passed"
+    },
+    {
+      "name": "A missing Chrome document ID fails closed before cache reading",
+      "status": "passed"
+    },
+    {
+      "name": "A real non-Flow document refuses even a displayed image and trusted saved project metadata",
+      "status": "passed"
+    },
+    {
+      "name": "A closed tab reports TAB_UNAVAILABLE without falling back to another tab",
+      "status": "passed"
+    },
+    {
+      "name": "Debugger conflict plus unavailable CORS reports a concrete DevTools recovery action",
+      "status": "passed"
+    },
+    {
+      "name": "Explicit debugger-attach refusal preserves the cached image for a retry after DevTools closes",
+      "status": "passed"
+    }
+  ],
+  "browser": "151.0.7922.173",
+  "passed": 36,
+  "failed": 0
+}

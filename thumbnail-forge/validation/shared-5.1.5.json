@@ -1,0 +1,57 @@
+{
+  "suite": "shared",
+  "results": [
+    {
+      "name": "V5 migration preserves references, exact text, stored logo and custom prompt",
+      "status": "passed"
+    },
+    {
+      "name": "Generation counter recovers maximum persisted job or history number",
+      "status": "passed"
+    },
+    {
+      "name": "Export settings normalize filenames and clamp size/position/mode",
+      "status": "passed"
+    },
+    {
+      "name": "Export filenames sort by generation then output and retain snapshot prefix",
+      "status": "passed"
+    },
+    {
+      "name": "Logo rectangle respects aspect ratio and safe corners on landscape/portrait/square",
+      "status": "passed"
+    },
+    {
+      "name": "Only enabled Flow mode attaches uploaded logo",
+      "status": "passed"
+    },
+    {
+      "name": "Prompt retains exact zones with enabled Flow logo",
+      "status": "passed"
+    },
+    {
+      "name": "Overlay prompt reserves logo area and never attaches/invents brand",
+      "status": "passed"
+    },
+    {
+      "name": "Disabled or absent logo does not request a brand mark",
+      "status": "passed"
+    },
+    {
+      "name": "Custom prompt without placeholders receives text/brief/logo safeguards",
+      "status": "passed"
+    },
+    {
+      "name": "Flow project identity survives trailing slash, editor subroutes and SPA query/hash changes",
+      "status": "passed"
+    },
+    {
+      "name": "Flow project identity rejects home routes, foreign hosts, credentials and malformed IDs",
+      "status": "passed"
+    },
+    {
+      "name": "Current image models preserve Lite and Pro, migrate the old default and retain the shared project",
+      "status": "passed"
+    }
+  ]
+}

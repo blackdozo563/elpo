@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Thumbnail Forge · Réglages</title><link rel="stylesheet" href="popup.css"><link rel="stylesheet" href="options.css"></head>
+<body class="settings-page">
+  <div class="settings-shell">
+    <header class="topbar"><a href="popup.html?studio=1" class="brand"><span class="brand-mark">F<span>·</span></span><span>THUMBNAIL<br><strong>FORGE <small id="appVersion" title="Version installée"></small></strong></span></a><a href="popup.html?studio=1" class="secondary-btn">← Revenir au studio</a></header>
+    <main>
+      <div class="settings-intro"><span class="eyebrow">TON STUDIO, TES RÈGLES</span><h1>Les réglages de création.</h1><p>Tout est prêt pour une saisie unique. Personnalise le prompt ou choisis un projet Flow existant.</p></div>
+      <div id="status" class="settings-status" role="status" hidden></div>
+      <form id="settingsForm">
+        <section class="settings-section"><div class="settings-section-title"><span class="section-number">01</span><div><h2>Connexion à Flow</h2><p>Le compte et les crédits de ton navigateur sont utilisés.</p></div></div>
+          <label for="flowUrl">Adresse Flow ou lien de ton projet</label><input id="flowUrl" type="url" required spellcheck="false" placeholder="https://flow.google.com/"><p class="helper">Tu peux coller le lien d’un projet pour le réutiliser. Connecte-toi à Flow au préalable.</p>
+          <div class="settings-inline"><div><label for="aspect">Format par défaut</label><select id="aspect"><option value="16:9">16:9 · YouTube</option><option value="9:16">9:16 · Shorts</option><option value="1:1">1:1 · Carré</option></select></div><div class="fixed-settings"><span>Génération</span><label for="model">Modèle image</label><select id="model"><option value="Nano Banana Pro">Nano Banana Pro</option><option value="Nano Banana 2 Lite">Nano Banana 2 Lite</option><option value="Nano Banana 2.1">Nano Banana 2.1</option></select><small>4 images séparées · Envoi automatique</small></div></div>
+          <div class="settings-actions"><button type="button" id="openFlow" class="secondary-btn">Ouvrir Flow ↗</button><button type="button" id="diagnose" class="text-btn">Vérifier la connexion</button></div>
+        </section>
+        <section class="settings-section"><div class="settings-section-title"><span class="section-number">02</span><div><h2>Le prompt intégré</h2><p>Un même prompt, ta référence et tes textes sont envoyés ensemble.</p></div></div>
+          <label for="oneShotPrompt">Direction artistique &amp; instructions</label><textarea id="oneShotPrompt" rows="15" maxlength="18000" spellcheck="false"></textarea>
+          <div class="token-list" aria-label="Variables disponibles"><code>{{ZONES}}</code><code>{{BRIEF}}</code><code>{{ASPECT}}</code><code>{{W}}</code><code>{{H}}</code><code>{{LOGO}}</code></div>
+          <p class="helper">Les variables sont remplacées par tes textes et tes réglages. Le nombre de résultats est configuré dans Flow : demande une image par résultat, jamais un collage.</p>
+          <div class="settings-actions"><button type="button" id="resetPrompt" class="text-btn">Rétablir le prompt d’origine</button><button type="button" id="previewPrompt" class="text-btn">Voir avec mes textes →</button></div>
+          <pre id="preview" class="settings-output" hidden></pre>
+        </section>
+        <details class="settings-section technical"><summary><div><h2>Compatibilité avancée</h2><p>À utiliser uniquement si l’interface de Flow change.</p></div><span aria-hidden="true">+</span></summary><p class="helper">Laisse ces champs vides pour la détection automatique. Les sélecteurs CSS personnalisés permettent de cibler les éléments visibles de Flow. Aucune exécution de code n’est autorisée ici.</p><div class="selector-grid" id="selectorFields"></div><button id="resetSelectors" type="button" class="text-btn">Effacer les sélecteurs personnalisés</button></details>
+        <div class="settings-bottom"><span id="savedAt">Modifications à enregistrer</span><button class="primary-btn" id="saveBtn" type="submit"><span aria-hidden="true">✓</span><span>Enregistrer les réglages</span><span aria-hidden="true">→</span></button></div>
+      </form>
+      <section id="diagnosticPanel" class="settings-section" hidden><div class="diagnostics-heading"><h2>Diagnostic</h2><button id="copyDiagnostic" class="text-btn">Copier le rapport</button></div><pre id="diagnosticOutput" class="settings-output"></pre></section>
+      <footer class="settings-footer"><p>Les références, textes, réglages et journaux sont conservés localement dans Chrome. Les images et instructions sont envoyées à Google Flow quand tu lances une génération.</p><p>Forge n’intervient pas dans la connexion Google, les crédits ou les limites de ton compte.</p><button type="button" id="exportData" class="text-btn">Exporter mes données ↓</button><p class="creator-credit">MADE BY ELPO 00228 71 82 59 18</p></footer>
+    </main>
+  </div>
+  <script src="shared.js"></script><script src="options.js"></script>
+</body>
+</html>

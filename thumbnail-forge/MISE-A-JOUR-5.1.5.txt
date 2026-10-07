@@ -1,0 +1,6 @@
+Thumbnail Forge 5.1.5
+Un seul projet Flow commun à toutes les générations, mémorisé dès que l’éditeur est prêt.
+Correction du panneau de réglages restant ouvert, modèles Pro / 2 Lite / 2.1 sélectionnables.
+Reprise vérifiée des préparations interrompues, remplacement des références Forge et protection des brouillons utilisateur.
+Recharger l’extension dans le même dossier, puis actualiser Flow.
+Voir LIRE-MOI.md et VALIDATION.md pour le fonctionnement et les limites des essais.

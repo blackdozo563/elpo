@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Thumbnail Forge · Studio</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <a href="popup.html?studio=1" class="brand" aria-label="Thumbnail Forge"><span class="brand-mark">F<span>·</span></span><span>THUMBNAIL<br><strong>FORGE <small id="appVersion" title="Version installée"></small></strong></span></a>
+      <div class="toolbar"><span class="save-label" id="saveLabel" aria-live="polite">Chargement…</span><button id="expandBtn" class="icon-btn" title="Ouvrir le grand studio" aria-label="Agrandir le studio">↗</button><button id="optionsBtn" class="icon-btn" title="Paramètres et prompt" aria-label="Paramètres et prompt">⚙</button></div>
+    </header>
+    <div id="notice" class="notice" role="status" hidden><span id="noticeText"></span><button id="dismissNotice" class="icon-btn" aria-label="Fermer le message">×</button></div>
+    <main class="workspace">
+      <section class="source-column">
+        <div class="section-heading"><div><span class="eyebrow">01 / INSPIRATION</span><h1>La référence.</h1></div><span class="small-badge" id="capacity">0 / 20</span></div>
+        <div class="preview" id="preview">
+          <img id="referenceImage" alt="Miniature de référence sélectionnée" hidden>
+          <div id="emptyReference" class="empty-reference"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="7" y="10" width="34" height="28" rx="5"/><path d="m9 32 11-11 8 8 5-5 7 7"/><circle cx="32" cy="18" r="3"/></svg><strong>Tout commence par une image</strong><span>Capture une miniature YouTube<br>ou importe ta référence.</span></div>
+          <span class="image-badge" id="referenceBadge" hidden>RÉFÉRENCE DE STYLE</span>
+          <div id="referenceTools" class="reference-tools" hidden><button id="downloadReference" class="icon-btn" title="Télécharger la référence" aria-label="Télécharger la référence">↓</button><button id="deleteReference" class="icon-btn" title="Supprimer la référence" aria-label="Supprimer la référence">×</button></div>
+        </div>
+        <div class="reference-meta"><strong id="referenceTitle">Aucune référence sélectionnée</strong><span id="referenceSize">JPG, PNG ou WebP</span></div>
+        <div class="capture-actions"><button id="grabTab" class="secondary-btn" disabled><span aria-hidden="true">⌁</span> Capturer l’onglet YouTube</button><label class="secondary-btn import-btn" for="imageUpload"><span aria-hidden="true">+</span> Importer</label><input id="imageUpload" type="file" accept="image/png,image/jpeg,image/webp" hidden></div>
+        <p id="tabHint" class="muted source-hint">Ou colle le lien d’une vidéo ci-dessous.</p>
+        <form id="captureForm" class="url-row"><label class="sr-only" for="urlInput">Lien de la vidéo YouTube</label><input id="urlInput" type="text" placeholder="Coller un lien YouTube…" autocomplete="off" spellcheck="false"><button id="grabUrl" class="compact-btn" type="submit">Capturer</button></form>
+        <div class="library-heading"><span class="eyebrow">MES RÉFÉRENCES</span><span class="muted">Clique pour sélectionner</span></div>
+        <div id="library" class="library" aria-label="Références enregistrées"></div>
+        <div class="logo-section">
+          <div class="logo-row"><div class="logo-preview" id="logoPreview"><span aria-hidden="true">+</span></div><div class="logo-copy"><strong>Logo de la chaîne <span>facultatif</span></strong><small id="logoName">PNG transparent conseillé · 8 Mo maximum</small><label class="text-btn" for="logoUpload" id="logoUploadLabel">Importer le logo</label></div><button id="removeLogo" class="text-btn" hidden>Retirer</button><input id="logoUpload" type="file" accept="image/png,image/jpeg,image/webp" hidden></div>
+          <label class="check-row" for="logoEnabled"><input id="logoEnabled" type="checkbox" checked><span>Ajouter mon logo aux miniatures</span></label>
+          <div class="logo-settings" id="logoSettings" hidden>
+            <label for="logoMode">Intégration<select id="logoMode"><option value="flow">Intégré par Flow</option><option value="overlay">Logo fidèle à l’export</option></select></label>
+            <div id="overlayControls" class="overlay-controls" hidden><label for="logoPosition">Position<select id="logoPosition"><option value="top-right">En haut à droite</option><option value="top-left">En haut à gauche</option><option value="bottom-right">En bas à droite</option><option value="bottom-left">En bas à gauche</option></select></label><label for="logoSize">Largeur du logo (%)<input id="logoSize" type="number" min="5" max="30" step="1" value="12"></label></div>
+            <p id="logoModeHint" class="muted">Flow reçoit le logo comme seconde image et l’intègre à la création.</p>
+          </div>
+          <p id="logoLockHint" class="muted" hidden>Logo verrouillé pendant la génération. Les fichiers utilisent le logo et les réglages du lancement.</p>
+        </div>
+        <button id="jumpToTexts" class="secondary-btn compact-nav">Écrire mes textes A / B / C <span aria-hidden="true">↓</span></button>
+      </section>
+      <section class="compose-column">
+        <div class="section-heading"><div><span class="eyebrow">02 / CRÉATION</span><h2>Une saisie. Quatre créations.</h2></div><button id="backToReference" class="text-btn compact-nav">↑ Référence</button></div>
+        <div class="model-line"><span class="model-dot"></span><label for="model">Modèle</label><select id="model" aria-label="Modèle image Flow"><option value="Nano Banana Pro">Nano Banana Pro</option><option value="Nano Banana 2 Lite">Nano Banana 2 Lite</option><option value="Nano Banana 2.1">Nano Banana 2.1</option></select><span>4 images séparées</span></div>
+        <div class="field"><label for="zoneA"><span class="zone-letter">A</span>Titre principal <small>texte exact</small></label><textarea id="zoneA" rows="2" maxlength="220" placeholder="Ex. IL A TOUT PERDU…"></textarea><div class="field-foot"><span>Le texte le plus visible de ta miniature.</span><span id="countA">0 / 220</span></div></div>
+        <div class="field"><label for="zoneB"><span class="zone-letter">B</span>Sous-titre <small>facultatif</small></label><textarea id="zoneB" rows="2" maxlength="220" placeholder="Ex. POUR UNE SEULE ERREUR"></textarea><div class="field-foot"><span>Une seconde ligne, si tu en as besoin.</span><span id="countB">0 / 220</span></div></div>
+        <div class="field"><label for="zoneC"><span class="zone-letter">C</span>Accroche / badge <small>facultatif</small></label><input id="zoneC" maxlength="120" placeholder="Ex. HISTOIRE VRAIE"><div class="field-foot"><span>Laisser vide pour ne rien ajouter.</span><span id="countC">0 / 120</span></div></div>
+        <div class="brief-row"><label for="brief">Sujet &amp; direction créative <small>facultatif</small></label><textarea id="brief" rows="2" maxlength="1800" placeholder="Ex. Un voiturier surpris devant une supercar rouge. Ambiance cinéma, expression intense."></textarea></div>
+        <div class="format-row"><span>Format</span><div class="format-options" role="group" aria-label="Format des miniatures"><button type="button" data-aspect="16:9" aria-pressed="true">16:9 <small>YouTube</small></button><button type="button" data-aspect="9:16" aria-pressed="false">9:16</button><button type="button" data-aspect="1:1" aria-pressed="false">1:1</button></div></div>
+        <details class="prompt-details"><summary>Voir le prompt envoyé à Flow <span aria-hidden="true">+</span></summary><p class="muted">Ta référence, tes textes et ce prompt sont transmis ensemble. Chaque résultat doit être une image indépendante.</p><pre id="promptPreview"></pre><div class="prompt-actions"><button id="copyPrompt" class="text-btn">Copier le prompt</button><button id="editPrompt" class="text-btn">Personnaliser →</button></div></details>
+        <div class="export-settings">
+          <label class="check-row" for="autoDownload"><input id="autoDownload" type="checkbox" checked><span>Télécharger automatiquement les résultats</span></label>
+          <label class="filename-field" for="filePrefix">Nom des fichiers<input id="filePrefix" type="text" value="miniature" maxlength="60" autocomplete="off" spellcheck="false"></label>
+          <p class="filename-preview">Prochain fichier : <span id="filenamePreview">0001_01_miniature.png</span></p>
+          <p id="nextLaunchHint" class="muted" hidden>Ces réglages s’appliqueront au prochain lancement.</p>
+        </div>
+        <div class="launch-area"><button id="startBtn" class="primary-btn" disabled><span aria-hidden="true">✦</span><span id="startLabel">Générer mes 4 miniatures</span><span aria-hidden="true">→</span></button><p id="launchHint">Ajoute une référence pour commencer.</p></div>
+      </section>
+      <section class="activity-column" aria-labelledby="activityTitle">
+        <div class="activity-top"><div><span class="eyebrow">03 / PRODUCTION</span><h2 id="activityTitle">Le studio travaille pour toi.</h2></div><button id="openFlow" class="text-btn">Ouvrir Flow ↗</button></div>
+        <div id="idleState" class="idle-state"><span class="idle-icon" aria-hidden="true">✦</span><div><strong>Prêt quand tu l’es.</strong><p>Image, textes et prompt seront transférés à Flow.<br>Garde le navigateur ouvert pendant la génération.</p></div></div>
+        <div id="jobPanel" class="job-panel" hidden><div class="job-top"><div class="job-identity"><span id="jobStatus" class="status-badge">Préparation</span><span id="jobNumber" class="muted"></span></div><button id="cancelBtn" class="text-btn danger">Arrêter</button></div><p id="jobMessage" role="status" aria-live="polite"></p><progress id="jobProgress" max="100" value="0" aria-label="Progression de l’automatisation"></progress><ol class="steps" id="jobSteps"><li data-step="0"><span>1</span>Ouvrir Flow</li><li data-step="1"><span>2</span>Joindre les images</li><li data-step="2"><span>3</span>Envoyer le prompt</li><li data-step="3"><span>4</span>Générer</li></ol><div id="jobError" class="job-error" hidden></div><p id="resultExportHint" class="result-export-hint" hidden></p><div id="results" class="results"></div><button id="downloadAll" class="secondary-btn download-all" hidden>Télécharger les résultats manquants ↓</button></div>
+        <details class="history-details"><summary>Dernières générations <span id="historyCount">0</span></summary><div id="history" class="history-list"></div></details>
+        <div class="footer-row"><span>Stockage local · Aucun serveur Forge</span><button id="diagnoseBtn" class="text-btn">Diagnostic</button></div>
+        <div id="diagnosticsPanel" class="diagnostics-panel" hidden><div class="diagnostics-heading"><strong>Diagnostic Flow</strong><button id="copyDiagnostic" class="text-btn">Copier</button></div><pre id="diagnosticsOutput"></pre></div>
+        <p class="creator-credit">MADE BY ELPO 00228 71 82 59 18</p>
+      </section>
+    </main>
+  </div>
+  <script src="shared.js"></script><script src="popup.js"></script>
+</body>
+</html>

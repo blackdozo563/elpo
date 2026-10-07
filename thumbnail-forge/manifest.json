@@ -1,0 +1,108 @@
+{
+  "manifest_version": 3,
+  "name": "Thumbnail Forge — Studio Flow",
+  "version": "5.1.5",
+  "minimum_chrome_version": "120",
+  "description": "Miniatures Flow en 4 variantes, téléchargements automatiques numérotés et logo de chaîne personnalisable.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Thumbnail Forge · Studio",
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "options_page": "src/options.html",
+  "side_panel": {
+    "default_path": "src/popup.html?panel=1"
+  },
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "activeTab",
+    "scripting",
+    "contextMenus",
+    "downloads",
+    "debugger",
+    "alarms",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "https://*.youtube.com/*",
+    "https://i.ytimg.com/*",
+    "https://i9.ytimg.com/*",
+    "https://img.youtube.com/*",
+    "https://labs.google/fx/*",
+    "https://flow.google/*",
+    "https://flow.google.com/*",
+    "https://*.googleusercontent.com/*",
+    "https://*.googleapis.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*",
+        "https://music.youtube.com/*"
+      ],
+      "js": [
+        "src/shared.js",
+        "src/youtube.js"
+      ],
+      "css": [
+        "src/youtube.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://labs.google/fx/*",
+        "https://flow.google/*",
+        "https://flow.google.com/*"
+      ],
+      "js": [
+        "src/flow-bridge.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://labs.google/fx/*",
+        "https://flow.google/*",
+        "https://flow.google.com/*"
+      ],
+      "js": [
+        "src/shared.js",
+        "src/flow.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+F"
+      },
+      "description": "Ouvrir Thumbnail Forge"
+    },
+    "grab-current": {
+      "suggested_key": {
+        "default": "Alt+Shift+Y"
+      },
+      "description": "Capturer la miniature YouTube active"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

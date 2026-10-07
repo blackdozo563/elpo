@@ -1,0 +1,86 @@
+/* Namespaced UI: YouTube styles cannot override the capture controls. */
+.tf-y5-button {
+  all: initial;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid rgba(214,243,107,.35);
+  border-radius: 10px;
+  background: rgba(23,22,32,.95);
+  color: #f5f2ff;
+  box-shadow: 0 4px 20px rgba(0,0,0,.3);
+  padding: 8px 10px;
+  font: 650 11px/1.2 system-ui, -apple-system, "Segoe UI", sans-serif;
+  cursor: pointer;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  transition: background .15s ease, border-color .15s ease, transform .15s ease;
+}
+.tf-y5-button:hover { background: #333b1f; border-color: #d6f36b; transform: translateY(-1px); }
+.tf-y5-button:focus-visible { outline: 3px solid #d6f36b; outline-offset: 3px; }
+.tf-y5-button:disabled { opacity: .75; cursor: wait; }
+.tf-y5-button[hidden] { display: none !important; }
+.tf-y5-button svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  fill: none;
+  stroke: #d6f36b;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+.tf-y5-label { white-space: nowrap; }
+.tf-y5-button[data-added="true"] { border-color: rgba(143,220,182,.45); color: #c4f7dd; }
+.tf-y5-button[data-added="true"] svg { stroke: #8fdcb6; }
+.tf-y5-button[data-busy="true"] svg { animation: tf-y5-spin 1.4s linear infinite; }
+.tf-y5-card { position: absolute; top: 8px; left: 8px; z-index: 30; }
+.tf-y5-floating {
+  position: fixed;
+  bottom: 22px;
+  left: 22px;
+  z-index: 2147483000;
+  padding: 12px 14px;
+  gap: 9px;
+  border-radius: 14px;
+  font-size: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.38);
+}
+.tf-y5-count { color: #d6f36b; font-size: 10px; padding: 3px 6px; border-radius: 5px; background: rgba(214,243,107,.13); }
+.tf-y5-toasts {
+  position: fixed;
+  bottom: 80px;
+  left: 22px;
+  z-index: 2147483001;
+  max-width: min(350px, calc(100vw - 44px));
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+.tf-y5-toast {
+  box-sizing: border-box;
+  border: 1px solid #454050;
+  border-radius: 12px;
+  background: #19171f;
+  color: #f5f2ff;
+  padding: 13px 15px;
+  font: 500 12px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  box-shadow: 0 8px 30px rgba(0,0,0,.3);
+  overflow-wrap: anywhere;
+}
+.tf-y5-toast.tf-y5-success { border-left: 3px solid #8fdcb6; }
+.tf-y5-toast.tf-y5-error { border-left: 3px solid #ff9b9b; }
+.tf-y5-toast.tf-y5-info { border-left: 3px solid #d6f36b; }
+@keyframes tf-y5-spin { to { transform: rotate(360deg); } }
+@media (max-width: 600px) {
+  .tf-y5-floating { bottom: 68px; left: 12px; }
+  .tf-y5-toasts { bottom: 126px; left: 12px; }
+  .tf-y5-card { font-size: 10px; padding: 6px 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tf-y5-button { transition: none; }
+  .tf-y5-button[data-busy="true"] svg { animation: none; }
+}

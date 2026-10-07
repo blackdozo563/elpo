@@ -1,0 +1,6 @@
+{
+  "suite": "background-state-machine",
+  "checks": 252,
+  "passed": true,
+  "scope": "Mocked Chrome APIs; live DOM/document ownership is covered by reader tests, not this suite. No live Flow generation or browser download test."
+}

@@ -1,0 +1,249 @@
+{
+  "version": "5.1.5",
+  "date": "2026-10-07T11:39:45.483Z",
+  "mode": "Real Chromium; real extension scripts and upload bridge; mocked chrome.runtime transport and local synthetic Flow UI",
+  "limitations": [
+    "Fixtures test a composer-scope hypothesis inferred from the supplied diagnostic; the exact authenticated Google Flow DOM was not available.",
+    "No external Google API, account, credits, generation, extension installation, or native browser downloads were used.",
+    "The suite cannot establish live Google Flow compatibility on its own."
+  ],
+  "fixturePromptLength": 2238,
+  "results": [
+    {
+      "name": "Cold diagnostic: tall prompt loses old scope; new resolver accepts aria-haspopup=false, excludes Save/Cancel submits and finds two references",
+      "status": "passed",
+      "durationMs": 297
+    },
+    {
+      "name": "Cold diagnostic: text-only form does not hide sibling generation/settings/reference controls",
+      "status": "passed",
+      "durationMs": 265
+    },
+    {
+      "name": "Cold diagnostic: ten nested prompt wrappers do not hide generation controls",
+      "status": "passed",
+      "durationMs": 245
+    },
+    {
+      "name": "Full pipeline: reference + logo + long prompt resizes composer; one trusted Generate click, four outputs, no decoy/settings clicks",
+      "status": "passed",
+      "durationMs": 5170
+    },
+    {
+      "name": "Classic compact form keeps the previous full generation path working",
+      "status": "passed",
+      "durationMs": 5175
+    },
+    {
+      "name": "Generate remains disabled until async enable; controller waits and clicks once after enable",
+      "status": "passed",
+      "durationMs": 6472
+    },
+    {
+      "name": "Persistence checkpoint failure prevents generation entirely",
+      "status": "passed",
+      "durationMs": 2565
+    },
+    {
+      "name": "Duplicate same job during run and after completion never causes a second submission",
+      "status": "passed",
+      "durationMs": 5182
+    },
+    {
+      "name": "Two equally valid Generate buttons are treated as ambiguous; no paid-action click",
+      "status": "passed",
+      "durationMs": 283
+    },
+    {
+      "name": "Home page creates exactly one first project, persists it before upload and completes",
+      "status": "passed",
+      "durationMs": 6092
+    },
+    {
+      "name": "Material preferences close without Escape; exact model Nano Banana Pro",
+      "status": "passed",
+      "durationMs": 6157
+    },
+    {
+      "name": "Material preferences close without Escape; exact model Nano Banana 2 Lite",
+      "status": "passed",
+      "durationMs": 6167
+    },
+    {
+      "name": "Material preferences close without Escape; exact model Nano Banana 2.1",
+      "status": "passed",
+      "durationMs": 6145
+    },
+    {
+      "name": "An entirely covered settings toggle stops before prompt, imports and generation",
+      "status": "passed",
+      "durationMs": 791
+    },
+    {
+      "name": "Owned interrupted draft resumes without importing references twice",
+      "status": "passed",
+      "durationMs": 3522
+    },
+    {
+      "name": "A second generation in the same project replaces only the prior owned reference chips",
+      "status": "passed",
+      "durationMs": 10481
+    },
+    {
+      "name": "An unrelated user draft is never overwritten or submitted",
+      "status": "passed",
+      "durationMs": 317
+    },
+    {
+      "name": "Changing project during preparation stops before import or generation",
+      "status": "passed",
+      "durationMs": 271
+    },
+    {
+      "name": "No unhandled browser errors",
+      "status": "passed",
+      "durationMs": 0
+    }
+  ],
+  "browser": "151.0.7922.173",
+  "coldDiagnostic": {
+    "old": {
+      "prompt": true,
+      "promptType": "DIV",
+      "composer": true,
+      "controls": [],
+      "attachmentCount": 0,
+      "generate": false,
+      "settingsControl": null,
+      "modelControl": "Settings trigger tune 🍌 Nano Banana 2.1 crop_16_9 x4",
+      "rootId": "",
+      "composeHeight": 858,
+      "viewportHeight": 900
+    },
+    "new": {
+      "url": "https://flow.google.com/project/local",
+      "version": "5.1.5",
+      "hostSupported": true,
+      "prompt": true,
+      "promptType": "DIV",
+      "generate": true,
+      "generateEnabled": true,
+      "generateAmbiguous": false,
+      "generateCandidates": [
+        {
+          "label": "Générer arrow_forward",
+          "tag": "BUTTON",
+          "testId": null,
+          "enabled": true,
+          "score": 100
+        }
+      ],
+      "composer": true,
+      "composerTag": "SECTION",
+      "composerHeight": 858,
+      "attachmentCount": 2,
+      "fileInputs": 0,
+      "addImage": true,
+      "modelControl": "Settings trigger tune 🍌 Nano Banana 2.1 crop_16_9 x4",
+      "settings": {
+        "mode": {
+          "control": null,
+          "detected": true,
+          "verified": true,
+          "source": "selected-model-family"
+        },
+        "model": {
+          "control": "Settings trigger tune 🍌 Nano Banana 2.1 crop_16_9 x4",
+          "detected": true,
+          "verified": true
+        },
+        "aspect": {
+          "control": "Settings trigger tune 🍌 Nano Banana 2.1 crop_16_9 x4",
+          "detected": true,
+          "verified": true
+        },
+        "count": {
+          "control": "Settings trigger tune 🍌 Nano Banana 2.1 crop_16_9 x4",
+          "detected": true,
+          "verified": true
+        }
+      },
+      "activeJob": null,
+      "settingsControl": "Settings trigger tune 🍌 Nano Banana 2.1 crop_16_9 x4",
+      "agentEnabled": false,
+      "controls": [
+        "Add image add Add image",
+        "Settings trigger tune 🍌 Nano Banana 2.1 crop_16_9 x4",
+        "Générer arrow_forward",
+        "Save",
+        "Cancel"
+      ],
+      "nearbyControls": [
+        {
+          "label": "Générer arrow_forward",
+          "tag": "BUTTON",
+          "testId": null,
+          "type": "button",
+          "insideComposer": true,
+          "enabled": true
+        },
+        {
+          "label": "Settings trigger tune 🍌 Nano Banana 2.1 crop_16_9 x4",
+          "tag": "BUTTON",
+          "testId": null,
+          "type": "button",
+          "insideComposer": true,
+          "enabled": true
+        },
+        {
+          "label": "Save",
+          "tag": "BUTTON",
+          "testId": null,
+          "type": "submit",
+          "insideComposer": true,
+          "enabled": true
+        },
+        {
+          "label": "Add image add Add image",
+          "tag": "BUTTON",
+          "testId": null,
+          "type": "button",
+          "insideComposer": true,
+          "enabled": true
+        },
+        {
+          "label": "Cancel",
+          "tag": "BUTTON",
+          "testId": null,
+          "type": "submit",
+          "insideComposer": true,
+          "enabled": true
+        }
+      ]
+    }
+  },
+  "fullPipelineStages": [
+    "opening",
+    "project-ready",
+    "configuration",
+    "reference",
+    "prepared",
+    "logo",
+    "prepared",
+    "prompt",
+    "prepared",
+    "submitting",
+    "results",
+    "results",
+    "done"
+  ],
+  "ambiguousError": {
+    "code": "GENERATE_AMBIGUOUS",
+    "message": "Plusieurs boutons Générer sont possibles. Aucun envoi."
+  },
+  "summary": {
+    "passed": 19,
+    "failed": 0,
+    "blocked": 0
+  }
+}
